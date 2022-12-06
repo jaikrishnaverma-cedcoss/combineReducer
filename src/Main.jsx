@@ -21,7 +21,7 @@ const Main = () => {
       else
         msg.msg1 = "qunatity not availble."
     } if (IceInput.current.value) {
-      if (state.iceCream.totalIceCream - parseInt(cakeInput.current.value) >= 0) { dispatch({ type: "buyIce", payload: parseInt(IceInput.current.value) }); msg.msg2 = "" }
+      if (state.iceCream.totalIceCream - parseInt(IceInput.current.value) >= 0) { dispatch({ type: "buyIce", payload: parseInt(IceInput.current.value) }); msg.msg2 = "" }
       else
         msg.msg2 = "qunatity not availble."
     }
@@ -44,17 +44,17 @@ const Main = () => {
           <form onSubmit={formHandler}>
             <label htmlFor="">Cakes</label>
             <div className="col">
-              <input type="number" ref={cakeInput} />
+              <input placeholder="Enter no. of Cakes" type="number" ref={cakeInput} />
               <p className="red">{msg.msg1}</p>
             </div>
             <label htmlFor="">IceCreams</label>
             <div className="col">
-              <input type="number" ref={IceInput} />
+              <input type="number" ref={IceInput}  placeholder="Enter no. of IceCreams"/>
               <p className="red">{msg.msg2}</p>
             </div>
             <label htmlFor="">Chocolates</label>
             <div className="col">
-              <input type="number" ref={ChocoInput} />
+              <input type="number" ref={ChocoInput}  placeholder="Enter no. of Chocolates"/>
               <p className="red">{msg.msg3}</p>
             </div>
             <button>Submit</button>

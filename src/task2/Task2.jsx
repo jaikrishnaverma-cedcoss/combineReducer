@@ -8,7 +8,6 @@ const value1 = useRef (0)
 const value2 = useRef(0)
 const [msg, setMsg] = useState({ msg1: false, msg2: false, msg3: false })
 
-console.log("state",state)
   return (
  <>
   <div className="App">
@@ -17,12 +16,12 @@ console.log("state",state)
 
             <label htmlFor="">Value 1</label>
             <div className="col">
-              <input type="number" ref={value1} />
+              <input type="number" placeholder="Enter First Operand" ref={value1} />
               <p className="red">{msg.msg1}</p>
             </div>
             <label htmlFor="">Value 2</label>
             <div className="col">
-              <input type="number" ref={value2} />
+              <input type="number" placeholder="Enter Second Operand" ref={value2} />
               <p className="red">{msg.msg2}</p>
             </div>
             <label htmlFor="">Result</label>
@@ -31,11 +30,11 @@ console.log("state",state)
               <p className="red">{msg.msg3}</p>
             </div>
             <div className="row">
-            <button onClick={()=>dispatch({type:"ADD",a:value1.current.value,b:value2.current.value})}>Add {" "+state.addition.answer}</button>
-            <button onClick={()=>dispatch({type:"SUB",a:value1.current.value,b:value2.current.value})}>Subtract {" "+state.substraction.answer}</button>
-            <button onClick={()=>dispatch({type:"DIV",a:value1.current.value,b:value2.current.value})}>Devide {" "+state.division.answer}</button>
-            <button onClick={()=>dispatch({type:"MUL",a:value1.current.value,b:value2.current.value})}>Multiply {" "+state.multiplication.answer}</button>
-            <button onClick={()=>dispatch({type:"CLR",a:value1.current.value,b:value2.current.value})}>Clear</button>
+            <button onClick={()=>{(value1.current.value&&value2.current.value)?dispatch({type:"ADD",a:value1.current.value,b:value2.current.value}):alert("Invalid Inputs.")}}>Add {" "+state.addition.answer}</button>
+            <button onClick={()=>{(value1.current.value&&value2.current.value)?dispatch({type:"SUB",a:value1.current.value,b:value2.current.value}):alert("Invalid Inputs.")}}>Subtract {" "+state.substraction.answer}</button>
+            <button onClick={()=>{(value1.current.value&&value2.current.value)?dispatch({type:"DIV",a:value1.current.value,b:value2.current.value}):alert("Invalid Inputs.")}}>Devide {" "+state.division.answer}</button>
+            <button onClick={()=>{(value1.current.value&&value2.current.value)?dispatch({type:"MUL",a:value1.current.value,b:value2.current.value}):alert("Invalid Inputs.")}}>Multiply {" "+state.multiplication.answer}</button>
+            <button onClick={()=>{value1.current.value="";value2.current.value="";dispatch({type:"CLR",a:value1.current.value,b:value2.current.value})}}>Clear</button>
             </div>
 
         </div>
